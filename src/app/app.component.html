@@ -341,7 +341,15 @@
       </g>
     </svg>
 
-    <span>{{ title }} app is running!</span>
+    <span>{{ title }} app is running! {{getName()}}</span>
+
+    <!-- 
+      event binding happens with paranthesis, whereas property 
+      binding happens with square brackets 
+    -->
+    <input (keyup)="changeImage($event)" [value]="imgUrl">
+    <!-- Above we are taking image url as input
+    and the image will keep on updating based on the url present -->
 
     <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <title>Rocket Ship Smoke</title>
@@ -352,6 +360,9 @@
 
   <!-- Resources -->
   <h2>Resources</h2>
+  <!-- Property binding -->
+  <!-- <p>Here are some links to help you get started: <img [src]="imgUrl"></p> -->
+  <app-post [postImg]="imgUrl" (imgSelected)="logImg($event)"></app-post>
   <p>Here are some links to help you get started:</p>
 
   <div class="card-container">
