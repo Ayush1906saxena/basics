@@ -10,6 +10,7 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
+  OnDestroy,
 } from '@angular/core';
 
 @Component({
@@ -25,7 +26,8 @@ export class PostComponent
     AfterContentInit,
     AfterContentChecked,
     AfterViewInit,
-    AfterViewChecked
+    AfterViewChecked,
+    OnDestroy
 {
   @Input() postImg = '';
   @Output() imgSelected = new EventEmitter<string>();
@@ -62,5 +64,9 @@ export class PostComponent
 
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked() called');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy() called');
   }
 }
